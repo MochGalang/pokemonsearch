@@ -1,0 +1,185 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(59, 76, 202, 0.95); /* Poké Blue */
+  border-bottom: 4px solid #FFCB05; /* Poké Yellow */
+  box-shadow: var(--shadow-2);
+}
+
+.nav {
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: var(--margin-desktop);
+  height: 64px;
+  gap: var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-inline: var(--margin-mobile);
+  }
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logoBall {
+  font-size: 22px;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.logoText {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--on-surface);
+  letter-spacing: -0.01em;
+}
+
+/* Nav links */
+.links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  list-style: none;
+}
+
+@media (max-width: 640px) {
+  .links {
+    display: none;
+  }
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: var(--label-md-size);
+  font-weight: var(--label-md-weight);
+  color: rgba(255, 255, 255, 0.8);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.link:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.linkActive {
+  background: #FFCB05;
+  color: #3d3100;
+  box-shadow: 0 2px 8px rgba(255, 203, 5, 0.4);
+}
+
+/* Mobile menu button */
+.menuBtn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast);
+}
+
+.menuBtn:hover {
+  background: var(--surface-container);
+}
+
+@media (max-width: 640px) {
+  .menuBtn {
+    display: flex;
+  }
+}
+
+.menuIcon {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  position: relative;
+  transition: background var(--transition-fast);
+}
+
+.menuIcon::before,
+.menuIcon::after {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  position: absolute;
+  left: 0;
+  transition: transform var(--transition-base);
+}
+
+.menuIcon::before { top: -6px; }
+.menuIcon::after  { top: 6px; }
+
+.menuIconOpen {
+  background: transparent;
+}
+
+.menuIconOpen::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menuIconOpen::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.mobileMenu {
+  background: var(--primary);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: var(--space-2) var(--margin-mobile);
+  padding-bottom: var(--space-2);
+}
+
+.mobileMenu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobileLink {
+  display: block;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  font-size: var(--body-md-size);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.mobileLink:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.mobileLinkActive {
+  background: #FFCB05;
+  color: #3d3100;
+  font-weight: 600;
+}

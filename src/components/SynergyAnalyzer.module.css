@@ -1,0 +1,145 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.section {
+  background-color: var(--surface-container);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-family: var(--headline-font, sans-serif);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--on-surface);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.titleIcon {
+  font-size: 28px;
+}
+
+/* Bar Chart Styles */
+.statsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.statRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.statLabel {
+  width: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--on-surface-variant);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statValue {
+  width: 40px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--on-surface);
+  text-align: right;
+}
+
+.statBarContainer {
+  flex: 1;
+  height: 12px;
+  background-color: var(--surface-container-highest);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.statBarFill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Heatmap Styles */
+.heatmapGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.heatmapItem {
+  background-color: var(--surface-container-lowest);
+  border: 1px solid var(--surface-container-highest);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.2s;
+}
+
+.heatmapItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.heatmapHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.heatmapBars {
+  display: flex;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: var(--surface-container-highest);
+}
+
+.barWeak { background-color: #e74c3c; }
+.barNeutral { background-color: #95a5a6; }
+.barResist { background-color: #2ecc71; }
+.barImmune { background-color: #3498db; }
+
+.heatmapLegend {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+  padding-top: 24px;
+  border-top: 1px solid var(--surface-container-highest);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--on-surface-variant);
+}
+
+.legendColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+.loading {
+  text-align: center;
+  padding: 48px;
+  color: var(--on-surface-variant);
+  font-size: 16px;
+  font-style: italic;
+}

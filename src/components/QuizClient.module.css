@@ -1,0 +1,204 @@
+.quizWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  background-color: var(--surface-container);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-2);
+  width: 100%;
+}
+
+.scoreBoard {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--surface-container-highest);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-full);
+}
+
+.scoreItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--body-lg-size);
+  font-weight: 700;
+}
+
+.scoreLabel {
+  color: var(--on-surface-variant);
+}
+
+.scoreValueCorrect {
+  color: #2e7d32;
+}
+
+.scoreValueIncorrect {
+  color: var(--error);
+}
+
+[data-theme='dark'] .scoreValueCorrect {
+  color: #66bb6a;
+}
+
+.imageContainer {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, var(--surface-bright) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.pokemonImage {
+  object-fit: contain;
+  transition: filter 0.5s ease;
+}
+
+.silhouette {
+  filter: brightness(0) drop-shadow(0 0 10px rgba(0,0,0,0.5));
+}
+
+[data-theme='dark'] .silhouette {
+  filter: brightness(0) invert(1) brightness(0.2) drop-shadow(0 0 10px rgba(255,255,255,0.2));
+}
+
+.choicesContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+  width: 100%;
+  max-width: 500px;
+}
+
+@media (max-width: 600px) {
+  .choicesContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+.choiceBtn {
+  background-color: var(--surface);
+  color: var(--on-surface);
+  border: 2px solid var(--outline-variant);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2);
+  font-size: var(--body-lg-size);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.choiceBtn:hover:not(:disabled) {
+  background-color: var(--primary-fixed);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.choiceBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.choiceBtn.correct {
+  background-color: #4caf50;
+  color: white;
+  border-color: #388e3c;
+  transform: scale(1.05);
+  z-index: 2;
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.4);
+}
+
+.choiceBtn.incorrect {
+  background-color: var(--error);
+  color: var(--on-error);
+  border-color: var(--on-error-container);
+  opacity: 0.8;
+}
+
+.choiceBtn.disabled:not(.correct):not(.incorrect) {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.nextSection {
+  margin-top: var(--space-2);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.nextBtn {
+  background-color: var(--primary);
+  color: var(--on-primary);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  font-size: var(--body-lg-size);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-2);
+}
+
+.nextBtn:hover {
+  background-color: var(--primary-container);
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.statsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  max-width: 400px;
+}
+
+.scoreValueStreak {
+  color: #ff9800;
+}
+
+.bestStatsBoard {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 var(--space-3);
+  font-size: var(--body-md-size);
+  color: var(--on-surface-variant);
+  align-items: center;
+}
+
+.bestStatItem strong {
+  color: var(--on-surface);
+  font-size: var(--label-lg-size);
+  margin-left: 4px;
+}
+
+.restartBtn {
+  background-color: transparent;
+  color: var(--error);
+  border: 1px solid var(--error);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: var(--label-sm-size);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.restartBtn:hover {
+  background-color: var(--error);
+  color: white;
+}

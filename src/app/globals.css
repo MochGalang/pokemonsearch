@@ -1,40 +1,141 @@
+/* ============================================================
+   POKEMONSEARCH - Global Design System
+   Based on "Modern Pokedex Search Hub" Stitch Project
+   Primary: Poké Blue #3B4CCA | Tertiary: Poké Yellow #FFDE00 | Font: Inter
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --- Surface Colors --- */
+  --surface: #faf8fe;
+  --surface-dim: #dad9df;
+  --surface-bright: #faf8fe;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f4f3f8;
+  --surface-container: #eeedf3;
+  --surface-container-high: #e9e7ed;
+  --surface-container-highest: #e3e2e7;
+  --on-surface: #1a1b1f;
+  --on-surface-variant: #5d3f3e;
+  --inverse-surface: #2f3034;
+  --inverse-on-surface: #f1f0f5;
+  --surface-tint: #bf0024;
+  --surface-variant: #e3e2e7;
+
+  /* --- Primary (Poké Blue) --- */
+  --primary: #3B4CCA;
+  --primary-container: #5C6DE6;
+  --on-primary: #ffffff;
+  --on-primary-container: #EEF0FF;
+  --inverse-primary: #A3B1FF;
+  --primary-fixed: #DDE1FF;
+  --primary-fixed-dim: #BAC3FF;
+
+  /* --- Secondary (Poké Blue) --- */
+  --secondary: #0061a5;
+  --secondary-container: #73b4ff;
+  --on-secondary: #ffffff;
+  --on-secondary-container: #004579;
+  --secondary-fixed: #d2e4ff;
+  --secondary-fixed-dim: #a0caff;
+
+  /* --- Tertiary (Poké Yellow) --- */
+  --tertiary: #FFDE00;
+  --tertiary-container: #FFCB05;
+  --on-tertiary: #1a1b1f;
+  --on-tertiary-container: #3d3100;
+  --tertiary-fixed: #FFF2A8;
+  --tertiary-fixed-dim: #FFE866;
+
+  /* --- Error --- */
+  --error: #ba1a1a;
+  --error-container: #ffdad6;
+  --on-error: #ffffff;
+  --on-error-container: #93000a;
+
+  /* --- Outline --- */
+  --outline: #926e6c;
+  --outline-variant: #e7bcba;
+
+  /* --- Background --- */
+  --background: #faf8fe;
+  --on-background: #1a1b1f;
+
+  /* --- Typography --- */
+  --font-family: 'Inter', system-ui, sans-serif;
+  --display-lg-size: 48px;
+  --display-lg-weight: 700;
+  --display-lg-line-height: 56px;
+  --display-lg-letter-spacing: -0.02em;
+  --headline-md-size: 24px;
+  --headline-md-weight: 600;
+  --headline-md-line-height: 32px;
+  --headline-sm-size: 20px;
+  --headline-sm-weight: 600;
+  --headline-sm-line-height: 28px;
+  --body-lg-size: 18px;
+  --body-lg-line-height: 28px;
+  --body-md-size: 16px;
+  --body-md-line-height: 24px;
+  --label-md-size: 14px;
+  --label-md-weight: 600;
+  --label-md-line-height: 20px;
+  --label-sm-size: 12px;
+  --label-sm-weight: 500;
+  --label-sm-line-height: 16px;
+
+  /* --- Spacing (8px base) --- */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --gutter: 24px;
+  --margin-mobile: 16px;
+  --margin-desktop: 48px;
+  --card-padding: 24px;
+
+  /* --- Radius --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* --- Shadows (elevation) --- */
+  --shadow-1: 0px 4px 20px rgba(0, 0, 0, 0.04);
+  --shadow-2: 0px 12px 32px rgba(0, 0, 0, 0.08);
+  --shadow-primary: 0px 8px 24px rgba(59, 76, 202, 0.25);
+
+  /* --- Transitions --- */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-  height: 100%;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-family);
+  background-color: var(--background);
+  color: var(--on-background);
+  font-size: var(--body-md-size);
+  line-height: var(--body-md-line-height);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
 }
 
 a {
@@ -42,8 +143,123 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+button {
+  font-family: var(--font-family);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================
+   POKEMON TYPE COLORS
+   ============================================================ */
+:root {
+  --type-normal: #A8A878;
+  --type-fire: #F08030;
+  --type-water: #6890F0;
+  --type-electric: #F8D030;
+  --type-grass: #78C850;
+  --type-ice: #98D8D8;
+  --type-fighting: #C03028;
+  --type-poison: #A040A0;
+  --type-ground: #E0C068;
+  --type-flying: #A890F0;
+  --type-psychic: #F85888;
+  --type-bug: #A8B820;
+  --type-rock: #B8A038;
+  --type-ghost: #705898;
+  --type-dragon: #7038F8;
+  --type-dark: #705848;
+  --type-steel: #B8B8D0;
+  --type-fairy: #EE99AC;
+  --type-stellar: #40B5A5;
+  --type-unknown: #68A090;
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--surface-container-low); }
+::-webkit-scrollbar-thumb { background: var(--outline-variant); border-radius: var(--radius-full); }
+::-webkit-scrollbar-thumb:hover { background: var(--outline); }
+
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: var(--margin-desktop);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-inline: var(--margin-mobile);
   }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ============================================================
+   DARK MODE
+   ============================================================ */
+[data-theme='dark'] {
+  --surface: #1a1b1f;
+  --surface-dim: #121316;
+  --surface-bright: #393a3f;
+  --surface-container-lowest: #0e0e11;
+  --surface-container-low: #1a1b1f;
+  --surface-container: #1e1f23;
+  --surface-container-high: #292a2d;
+  --surface-container-highest: #333438;
+  --on-surface: #e3e2e6;
+  --on-surface-variant: #c4c6d0;
+  --inverse-surface: #e3e2e6;
+  --inverse-on-surface: #2f3033;
+  --surface-tint: #bac3ff;
+  --surface-variant: #44474e;
+  
+  --background: #1a1b1f;
+  --on-background: #e3e2e6;
+  
+  --primary: #bac3ff;
+  --on-primary: #00208c;
+  --primary-container: #2033b0;
+  --on-primary-container: #dce0ff;
+  
+  --secondary: #a0caff;
+  --on-secondary: #00325a;
+  --secondary-container: #00497f;
+  --on-secondary-container: #d2e4ff;
+  
+  --tertiary: #e3c453;
+  --on-tertiary: #3a3000;
+  --tertiary-container: #554800;
+  --on-tertiary-container: #ffe16d;
+  
+  --error: #ffb4ab;
+  --on-error: #690005;
+  --error-container: #93000a;
+  --on-error-container: #ffdad6;
+  
+  --outline: #8e9099;
+  --outline-variant: #44474e;
 }

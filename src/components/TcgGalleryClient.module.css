@@ -1,0 +1,192 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.searchForm {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+}
+
+.searchWrapper {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  background-color: var(--surface-container-high);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  box-shadow: var(--shadow-1);
+  transition: box-shadow 0.2s ease;
+}
+
+.searchWrapper:focus-within {
+  box-shadow: 0 0 0 2px var(--primary);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--on-surface-variant);
+  pointer-events: none;
+}
+
+.searchInput {
+  flex: 1;
+  padding: 16px 16px 16px 48px;
+  border: none;
+  background: transparent;
+  color: var(--on-surface);
+  font-size: var(--body-lg-size);
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.searchBtn {
+  background-color: var(--primary);
+  color: var(--on-primary);
+  border: none;
+  padding: 0 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.searchBtn:hover:not(:disabled) {
+  background-color: var(--primary-container);
+}
+
+.searchBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-4);
+  justify-items: center;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: var(--space-5);
+  }
+}
+
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 240px;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.cardWrapper:hover {
+  transform: translateY(-8px) scale(1.05);
+  z-index: 10;
+}
+
+.cardImage {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: var(--shadow-2);
+  transition: box-shadow 0.3s ease;
+}
+
+.cardWrapper:hover .cardImage {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.cardInfo {
+  margin-top: var(--space-2);
+  text-align: center;
+  width: 100%;
+}
+
+.cardName {
+  font-weight: 700;
+  color: var(--on-surface);
+  font-size: var(--body-lg-size);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cardSet {
+  color: var(--on-surface-variant);
+  font-size: var(--body-sm-size);
+}
+
+.noResults {
+  text-align: center;
+  padding: var(--space-6);
+  color: var(--on-surface-variant);
+  font-size: var(--title-md-size);
+}
+
+.loadMoreWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-6);
+}
+
+.loadMoreBtn {
+  background-color: var(--surface-container-highest);
+  color: var(--on-surface);
+  border: none;
+  padding: 12px 32px;
+  border-radius: var(--radius-full);
+  font-size: var(--body-lg-size);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-1);
+}
+
+.loadMoreBtn:hover:not(:disabled) {
+  background-color: var(--primary);
+  color: var(--on-primary);
+  transform: translateY(-2px);
+}
+
+.loadMoreBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6) 0;
+  color: var(--on-surface-variant);
+  font-size: var(--title-md-size);
+  gap: var(--space-3);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--surface-container-highest);
+  border-top: 4px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

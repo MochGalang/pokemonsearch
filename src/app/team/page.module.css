@@ -1,0 +1,39 @@
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 64px;
+}
+
+.header {
+  margin: 48px 0 32px;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--headline-font, sans-serif);
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--on-surface);
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: var(--on-surface-variant);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}

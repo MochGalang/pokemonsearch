@@ -1,0 +1,39 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.18);
+  letter-spacing: 0.03em;
+  line-height: 1;
+  text-transform: capitalize;
+}
+
+/* Sizes */
+.sm { font-size: 11px; padding: 3px 9px; height: 20px; }
+.md { font-size: var(--label-sm-size); padding: 4px 12px; height: 26px; }
+.lg { font-size: var(--label-md-size); padding: 6px 16px; height: 30px; }
+
+/* Type colors */
+.type-normal   { background: var(--type-normal);   }
+.type-fire     { background: var(--type-fire);     }
+.type-water    { background: var(--type-water);    }
+.type-electric { background: var(--type-electric); color: #333; text-shadow: none; }
+.type-grass    { background: var(--type-grass);    }
+.type-ice      { background: var(--type-ice);      color: #333; text-shadow: none; }
+.type-fighting { background: var(--type-fighting); }
+.type-poison   { background: var(--type-poison);   }
+.type-ground   { background: var(--type-ground);   color: #333; text-shadow: none; }
+.type-flying   { background: var(--type-flying);   }
+.type-psychic  { background: var(--type-psychic);  }
+.type-bug      { background: var(--type-bug);      }
+.type-rock     { background: var(--type-rock);     }
+.type-ghost    { background: var(--type-ghost);    }
+.type-dragon   { background: var(--type-dragon);   }
+.type-dark     { background: var(--type-dark);     }
+.type-steel    { background: var(--type-steel);    color: #333; text-shadow: none; }
+.type-fairy    { background: var(--type-fairy);    }
+.type-stellar  { background: var(--type-stellar);  }
+.type-unknown  { background: var(--type-unknown);  }
