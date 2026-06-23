@@ -96,10 +96,9 @@ export default function TcgCardModal({ card, onClose }: TcgCardModalProps) {
               
               <div className={styles.infoItem}>
                 <span className={styles.infoLabel}>Rarity</span>
-                <span className={styles.infoValue}>
+                <div className={styles.infoValue}>
                   {card.rarity ? (
-                    <span className={styles.rarityContainer}>
-                      {card.rarity}
+                    <div className={styles.rarityContainer}>
                       {getRarityInfo(card.rarity) && (
                         <span 
                           className={styles.rarityBadge}
@@ -111,11 +110,12 @@ export default function TcgCardModal({ card, onClose }: TcgCardModalProps) {
                           {getRarityInfo(card.rarity)?.abbr}
                         </span>
                       )}
-                    </span>
+                      <span className={styles.rarityText}>{card.rarity}</span>
+                    </div>
                   ) : (
                     'Unknown'
                   )}
-                </span>
+                </div>
               </div>
 
               <div className={styles.infoItem}>
