@@ -1,0 +1,157 @@
+.mascotContainer {
+  position: fixed;
+  bottom: 24px;
+  right: 32px;
+  z-index: 9999;
+  pointer-events: none; /* Let clicks pass through empty areas */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  animation: slideIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.hoopaWrapper {
+  position: relative;
+  cursor: pointer;
+  pointer-events: auto; /* Make Hoopa clickable */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease;
+  width: 80px;
+}
+
+.hoopaWrapper:hover {
+  transform: scale(1.1);
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.spin {
+  animation: spinAction 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.hoopaImage {
+  z-index: 2;
+  image-rendering: pixelated; /* Fixes blurriness for 2D pixel art gifs */
+  transform: scale(1.2); /* Make it slightly bigger */
+}
+
+.shadow {
+  width: 40px;
+  height: 8px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 50%;
+  margin-top: 4px;
+  filter: blur(3px);
+  animation: shadowPulse 3s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes shadowPulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(0.8); opacity: 0.3; }
+}
+
+@keyframes spinAction {
+  0% { transform: rotate(0deg) scale(1.1); }
+  50% { transform: rotate(180deg) scale(1.4); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.bounce {
+  animation: bounceAction 1s cubic-bezier(0.280, 0.840, 0.420, 1) forwards;
+}
+
+@keyframes bounceAction {
+  0% { transform: translateY(0) scale(1); }
+  30% { transform: translateY(-60px) scale(1.1, 0.9); }
+  50% { transform: translateY(0) scale(0.9, 1.1); }
+  70% { transform: translateY(-20px) scale(1.05, 0.95); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+.wobble {
+  animation: wobbleAction 0.8s ease-in-out forwards;
+}
+
+@keyframes wobbleAction {
+  0%, 100% { transform: rotate(0deg); }
+  15% { transform: rotate(-25deg) scale(1.2); }
+  30% { transform: rotate(20deg) scale(1.2); }
+  45% { transform: rotate(-15deg) scale(1.2); }
+  60% { transform: rotate(10deg) scale(1.2); }
+  75% { transform: rotate(-5deg) scale(1.2); }
+}
+
+.teleport {
+  animation: teleportAction 1.5s ease-in-out forwards;
+}
+
+@keyframes teleportAction {
+  0% { transform: scale(1); opacity: 1; filter: brightness(1); }
+  20% { transform: scale(0) rotate(180deg); opacity: 0; filter: brightness(2); }
+  60% { transform: scale(0) rotate(180deg) translate(-100px, -50px); opacity: 0; }
+  100% { transform: scale(1) rotate(360deg) translate(0, 0); opacity: 1; filter: brightness(1); }
+}
+
+.speechBubble {
+  position: absolute;
+  bottom: 100%;
+  right: 30px;
+  margin-bottom: 16px;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 20px;
+  border-bottom-right-radius: 4px;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.15);
+  animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  pointer-events: auto;
+  z-index: 3;
+}
+
+.speechBubble::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 12px;
+  border-width: 8px 8px 0 0;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0) translateY(20px); opacity: 0; transform-origin: bottom right; }
+  100% { transform: scale(1) translateY(0); opacity: 1; transform-origin: bottom right; }
+}
+
+/* Light mode support */
+:global([data-theme="light"]) .speechBubble {
+  background: rgba(255, 255, 255, 0.95);
+  color: #111;
+  border-color: rgba(0,0,0,0.1);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+:global([data-theme="light"]) .speechBubble::after {
+  border-color: rgba(255, 255, 255, 0.95) transparent transparent transparent;
+}
