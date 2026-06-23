@@ -219,8 +219,26 @@ export async function getPokemonTcgCards(query: string = '', page: number = 1, p
   }
   
   try {
-    const res = await fetch(url, { next: { revalidate: 3600 } });
-    if (!res.ok) return { data: [], totalCount: 0 };
+    const headers: HeadersInit = {
+      'User-Agent': 'PokemonSearch/1.0',
+    };
+    
+    // Use API key if available to prevent Vercel IP rate-limiting
+    if (process.env.POKEMON_TCG_API_KEY) {
+      headers['X-Api-Key'] = process.env.POKEMON_TCG_API_KEY;
+    } else if (process.env.NEXT_PUBLIC_POKEMON_TCG_API_KEY) {
+      headers['X-Api-Key'] = process.env.NEXT_PUBLIC_POKEMON_TCG_API_KEY;
+    }
+
+    const res = await fetch(url, { 
+      headers,
+      next: { revalidate: 3600 } 
+    });
+    
+    if (!res.ok) {
+      console.error(`TCG API Error: ${res.status} ${res.statusText}`);
+      return { data: [], totalCount: 0 };
+    }
     const data = await res.json();
     return { data: data.data || [], totalCount: data.totalCount || 0 };
   } catch (error) {
