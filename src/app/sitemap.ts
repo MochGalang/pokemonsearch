@@ -1,7 +1,6 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Ganti URL ini dengan domain asli Anda saat deploy (misalnya https://pokemonsearch.com)
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://pokemonsearch-one.vercel.app';
 
   const routes = [
