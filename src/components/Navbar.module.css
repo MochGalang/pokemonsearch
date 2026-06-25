@@ -60,7 +60,7 @@
   list-style: none;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1024px) {
   .links {
     display: none;
   }
@@ -104,7 +104,7 @@
   background: var(--surface-container);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1024px) {
   .menuBtn {
     display: flex;
   }

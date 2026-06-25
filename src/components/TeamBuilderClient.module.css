@@ -5,6 +5,13 @@
   margin-bottom: 48px;
 }
 
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
 .slot {
   background-color: var(--surface-container);
   border-radius: 24px;

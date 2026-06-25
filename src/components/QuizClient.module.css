@@ -20,6 +20,15 @@
   border-radius: var(--radius-full);
 }
 
+@media (max-width: 600px) {
+  .scoreBoard {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 16px;
+    border-radius: 16px;
+  }
+}
+
 .scoreItem {
   display: flex;
   align-items: center;
@@ -178,6 +187,14 @@
   font-size: var(--body-md-size);
   color: var(--on-surface-variant);
   align-items: center;
+}
+
+@media (max-width: 600px) {
+  .bestStatsBoard {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 16px;
+  }
 }
 
 .bestStatItem strong {

@@ -71,6 +71,13 @@
   gap: 32px;
 }
 
+@media (max-width: 640px) {
+  .content {
+    padding: 16px;
+    gap: 24px;
+  }
+}
+
 @media (min-width: 768px) {
   .content {
     flex-direction: row;
@@ -168,6 +175,12 @@
   letter-spacing: -1px;
 }
 
+@media (max-width: 640px) {
+  .title {
+    font-size: 28px;
+  }
+}
+
 .subtitle {
   color: rgba(255, 255, 255, 0.6);
   font-size: 18px;
@@ -195,6 +208,13 @@
   padding: 24px;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 640px) {
+  .infoGrid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 16px;
+  }
 }
 
 .infoItem {

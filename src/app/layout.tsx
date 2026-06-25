@@ -1,8 +1,14 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { ThemeProvider } from '@/components/ThemeProvider';
-import Script from 'next/script';
 import HoopaMascot from '@/components/HoopaMascot';
+import type { Viewport } from 'next';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+};
 
 export const metadata: Metadata = {
   title: {
@@ -28,21 +34,24 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <Script id="theme-script" strategy="beforeInteractive">
-          {`
-            (function() {
-              try {
-                var stored = localStorage.getItem('theme');
-                var isDark = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
-                if (isDark) {
-                  document.documentElement.setAttribute('data-theme', 'dark');
-                } else {
-                  document.documentElement.setAttribute('data-theme', 'light');
-                }
-              } catch (e) {}
-            })();
-          `}
-        </Script>
+        <script
+          id="theme-script"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var stored = localStorage.getItem('theme');
+                  var isDark = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                  if (isDark) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                  } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
       </head>
       <body>
         <ThemeProvider>

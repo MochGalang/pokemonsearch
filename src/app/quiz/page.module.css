@@ -25,6 +25,13 @@
   color: var(--primary);
   margin-bottom: var(--space-2);
   text-shadow: 2px 2px 0px var(--tertiary);
+  line-height: 1.1;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 36px;
+  }
 }
 
 .subtitle {
