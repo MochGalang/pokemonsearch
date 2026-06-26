@@ -11,6 +11,8 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://pokemonsearch-one.vercel.app'),
+  applicationName: 'PokemonSearch',
   title: {
     default: 'PokemonSearch – The Advanced Pokédex',
     template: '%s | PokemonSearch',
@@ -19,10 +21,33 @@ export const metadata: Metadata = {
     'Search, explore and analyze over 1,000 Pokémon species. Detailed stats, evolution chains, type matchups, moves, and more – powered by PokéAPI.',
   keywords: ['pokemon', 'pokedex', 'pokémon', 'pokeapi', 'stats', 'evolution'],
   authors: [{ name: 'PokemonSearch' }],
+  icons: {
+    icon: [
+      { url: '/icon.png', type: 'image/png' },
+    ],
+    apple: '/icon.png',
+    shortcut: '/icon.png',
+  },
   openGraph: {
     title: 'PokemonSearch – The Advanced Pokédex',
     description: 'The most advanced Pokémon database. Built for trainers, researchers, and completionists.',
     type: 'website',
+    url: 'https://pokemonsearch-one.vercel.app',
+    siteName: 'PokemonSearch',
+    images: [
+      {
+        url: '/icon.png',
+        width: 512,
+        height: 512,
+        alt: 'PokemonSearch Logo',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary',
+    title: 'PokemonSearch – The Advanced Pokédex',
+    description: 'Search, explore and analyze over 1,000 Pokémon species.',
+    images: ['/icon.png'],
   },
 };
 
